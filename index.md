@@ -1,27 +1,43 @@
 ---
 layout: default
-title: Davide Gramuglia — Blue Team Portfolio
+title: Projects
 ---
 
-# Davide Gramuglia
-**Blue-Team / SOC Analyst (entry level)** — network-focused, DFIR-curious.  
-[**Download CV (PDF)**](./Davide_Gramuglia_CV.pdf) • [GitHub](https://github.com/davgram) • [LinkedIn](https://www.linkedin.com/in/your-link) • [Email](mailto:your.email@example.com)
+# Featured Projects
 
----
+### Vulnerability Scanner Deployment  
+[View on GitHub ↗](https://github.com/davgram/vuln-scanner-deployment)
 
-## Featured Projects
+Deploy a production-style vulnerability scanner and workflow.
 
-### 1) Mini SOC Lab — Windows + Sysmon → Splunk & Elastic
-Small, reproducible lab for log collection, hunting, and detections.
-
-**Stack:** Win10 VM · Sysmon · Winlogbeat/UF → Splunk & Elastic · ATT&CK mapping  
+**Stack:** Ubuntu Server · Greenbone/OpenVAS (or Nessus) · scheduled/credentialed scans · CVSS reporting  
 **Highlights**
-- Dashboards for **Sysmon EIDs 1/3/7/11/13/22** and Windows **4624/4625/4688/7045**  
-- Detections for **LOLBINs**, **encoded PowerShell**, suspicious **parent/child chains**  
-- Saved searches & alerts with documentation and triage steps
+- Automated install and hardening (service user, TLS, firewall rules).
+- **Targets:** Windows & Linux lab VMs, network appliances.
+- **Jobs:** recurring scans, asset groups, differential reports, email alerts.
+- **Outputs:** HTML/CSV reports, JSON exports, SIEM/syslog forwarding.
+- **Process:** triage by CVSS, false-positive handling, ticketing handoff.
 
-```spl
-# Splunk: quick process creation triage (Sysmon EID 1)
-index=wineventlog source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1
-| stats count by Image, CommandLine, User, Computer | sort - count
+**See in repo:** install scripts (Bash/Ansible), scan policies, sample reports, SOP for remediation.
 
+---
+
+### Password Manager Hosted in Cloud  
+[View on GitHub ↗](https://github.com/davgram/password-manager-cloud)
+
+Self-hosted team password manager with backups and HTTPS.
+
+**Stack:** Ubuntu VM · Docker (Vaultwarden/Bitwarden-compatible) · Nginx/Caddy · Let’s Encrypt  
+**Highlights**
+- One-command `docker-compose` deployment with persistent volumes.
+- Automatic TLS via Let’s Encrypt; HTTP→HTTPS redirect; security headers.
+- Daily encrypted backups (DB + attachments) to object storage.
+- Hardening: non-root containers, UFW firewall, Fail2ban, audit logging.
+- Restore procedure + rotation/incident playbook.
+
+**See in repo:** `docker-compose.yml`, environment templates, backup/restore scripts, hardening checklist.
+
+---
+
+## Contact
+[Download CV (PDF)](./Davide_Gramuglia_CV.pdf) · [GitHub](https://github.com/davgram) · [LinkedIn](https://www.linkedin.com/in/your-link) · [Email](mailto:your.email@example.com)
