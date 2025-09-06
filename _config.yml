@@ -1,5 +1,5 @@
-title: Hacker theme
-description: Hacker is a theme for GitHub Pages.
-show_downloads: true
-google_analytics:
+title: "Davide Gramuglia — Blue Team"
+description: "SOC/Blue-Team projects, detections & notes"
 theme: jekyll-theme-hacker
+show_downloads: false
+google_analytics:
