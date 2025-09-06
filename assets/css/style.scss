@@ -1,33 +1,66 @@
 ---
 ---
 
-// keep the Hacker theme, then override
+/* Keep the Hacker theme, then override with a corporate light palette */
 @import "{{ site.theme }}";
 
-/* Midnight Aurora palette */
+/* Corporate Light */
 :root{
-  --bg: #0f1117;
-  --panel: #11131a;
-  --text: #e5e7eb;
-  --muted: #9aa4b2;
-  --accent: #8a5cf6;   /* violet */
-  --accent-2: #22d3ee; /* cyan hover */
-  --border: #232530;
+  --bg: #ffffff;        /* page background */
+  --text: #111827;      /* slate-900 */
+  --muted: #6b7280;     /* slate-500 */
+  --accent: #1d4ed8;    /* blue-700 */
+  --accent-2: #0ea5e9;  /* sky-500 (hover) */
+  --border: #e5e7eb;    /* gray-200 */
+  --code-bg: #f8fafc;   /* slate-50 */
 }
 
-/* base */
+/* Base */
 html, body { background: var(--bg); color: var(--text); }
 a { color: var(--accent); }
 a:hover { color: var(--accent-2); }
 hr { border-color: var(--border); }
 
-/* headings + site title */
+/* Header */
+.page-header{
+  background: #f3f4f6;             /* light grey band */
+  border-bottom: 1px solid var(--border);
+  padding: 2rem 0;
+}
+.project-name, .project-tagline{ color: var(--text); }
+.project-tagline{ color: var(--muted); }
+
+/* Headings */
 h1, h2, h3, h4, h5, h6,
-.project-name, .project-tagline { color: var(--accent); }
+.main-content h1, .main-content h2, .main-content h3{
+  color: #0f172a;                   /* very dark slate */
+}
 
-/* buttons */
-.btn { background: transparent; color: var(--text); border-color: var(--accent); }
-.btn:hover { background: var(--accent); color: #0f1117; }
+/* Buttons */
+.btn{
+  background: #ffffff;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+}
+.btn:hover{
+  background: var(--accent);
+  color: #ffffff;
+}
 
-/* code blocks */
-pre, code { background: #0b0e14; color: #e6e6e6; border-color: var(--border); }
+/* Code blocks */
+pre, code{
+  background: var(--code-bg);
+  color: #0f172a;
+  border: 1px solid var(--border);
+}
+
+/* Footer */
+.site-footer{
+  background: #fafafa;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+
+/* Optional: hide “View on GitHub” button in header */
+.page-header .btn { display: none; }
