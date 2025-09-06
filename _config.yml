@@ -1,5 +1,5 @@
-title: "Davide Gramuglia — Blue Team"
-description: "SOC/Blue-Team projects, detections & notes"
-theme: jekyll-theme-hacker
-show_downloads: false
-google_analytics:
+<div class="badge-row">
+  <a class="btn badge" href="YOUR_SECURITY_PLUS_URL" target="_blank" rel="noopener">CompTIA Security+</a>
+  <a class="btn badge" href="YOUR_BTL1_URL" target="_blank" rel="noopener">Blue Team Level 1 (BTL1)</a>
+  <a class="btn badge" href="YOUR_THM_SAL1_URL" target="_blank" rel="noopener">TryHackMe SAL1</a>
+</div>
