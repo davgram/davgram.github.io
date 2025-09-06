@@ -1,64 +1,22 @@
 ---
 ---
 
-@import "{{ site.theme }}"; /* load Hacker, then override */
+@import "{{ site.theme }}"; /* load Hacker CSS, then our overrides */
 
-/* =======================
-   Corporate Dark palette
-   ======================= */
-:root{
-  --bg: #0b0c0f;        /* near-black */
-  --text: #e6e7ea;      /* near-white */
-  --muted: #9aa0a6;     /* soft gray for tagline & notes */
-  --accent: #2b77ff;    /* business blue */
-  --accent-hover: #60a5fa;
-  --border: #1b1e24;
-}
-
-/* Base */
-html, body { background: var(--bg); color: var(--text); }
-a { color: var(--accent); }
-a:hover, a:focus { color: var(--accent-hover); text-decoration: underline; }
-hr, table, th, td, pre, code { border-color: var(--border); }
-pre, code { background:#0e1116; color:#f3f4f6; }
-
-/* Header — KEEP "./" prefix; recolor title + tagline */
-.page-header { background: var(--bg) !important; border: none !important; }
-.page-header .project-name,
-.page-header .project-name a,
-.page-header h1.project-name { color: var(--text) !important; }
-.page-header .project-tagline { color: var(--muted) !important; }
-
-/* HIDE the default "View on GitHub" button in header */
-.page-header a.btn,
-.page-header .btn,
-.page-header .btn:link,
-.page-header .btn:visited {
-  display: none !important;
-  pointer-events: none !important;
-}
-
-/* Buttons (including cert badges) */
-.btn{
-  background: transparent;
-  color: var(--text);
-  border: 2px solid var(--accent);
-}
-.btn:hover{
-  background: var(--accent);
-  color: var(--bg);
-}
-
-/* Certification buttons layout: vertical stack */
-.badge-col{
+/* Keep the original Hacker look; just style badges */
+.badge-row {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: .6rem;
-  margin: 1rem 0 2rem;
+  gap: .75rem;
+  margin: 1rem 0 0;
 }
-.btn.badge{
-  padding: .35rem .9rem;
+.btn.badge {
   border-radius: 9999px;
+  padding: .35rem .9rem;
   font-size: .92rem;
+}
+
+/* Safety: ensure any leftover header button is hidden (shouldn't render now) */
+.page-header .btn.view-on-github,
+.page-header a.btn[href*="github.com"] {
+  display: none !important;
 }
