@@ -1,12 +1,12 @@
 ---
 ---
 
-@import "{{ site.theme }}"; /* keep Hacker, then override with our palette */
+@import "{{ site.theme }}"; /* keep Hacker, then override */
 
 /* === Corporate Dark palette === */
 :root{
   --bg: #0b0c0f;        /* near-black */
-  --panel: #101217;     /* subtle panel */
+  --panel: #101217;
   --text: #e6e7ea;      /* near-white */
   --muted: #9aa0a6;     /* soft gray */
   --accent: #2b77ff;    /* business blue */
@@ -16,19 +16,17 @@
 
 /* Base */
 html, body { background: var(--bg); color: var(--text); }
-hr { border-color: var(--border); }
 a { color: var(--accent); }
 a:hover, a:focus { color: var(--accent-hover); text-decoration: underline; }
+hr, table, th, td, pre, code { border-color: var(--border); }
+pre, code { background:#0e1116; color:#f3f4f6; }
 
-/* Header + tagline (kill the neon green) */
-.page-header { background: var(--bg); border: none; }
-.project-name, .project-tagline { color: var(--text); }
-.project-tagline { color: var(--muted); }
+/* HEADER — remove neon green */
+.page-header { background: var(--bg) !important; border: none !important; }
+.page-header .project-name { color: var(--text) !important; }
+.page-header .project-tagline { color: var(--muted) !important; }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 { color: var(--text); }
-
-/* Buttons */
+/* Buttons (theme + our badges) */
 .btn{
   background: transparent;
   color: var(--text);
@@ -38,15 +36,10 @@ h1, h2, h3, h4, h5, h6 { color: var(--text); }
   background: var(--accent);
   color: var(--bg);
 }
+.badge-row{ display:flex; flex-wrap:wrap; gap:.5rem; margin: 1rem 0 2rem; }
+.btn.badge{ padding:.35rem .8rem; border-radius:9999px; font-size:.92rem; }
 
-/* Code blocks */
-pre, code{
-  background: #0e1116;
-  color: #f3f4f6;
-  border-color: var(--border);
-}
+/* Optional: hide the default "View on GitHub" header button */
+/* .page-header .btn { display:none !important; } */
 
-/* Tables & quotes */
-table, th, td { border-color: var(--border); }
-blockquote{ color: var(--muted); border-left: 0.25rem solid var(--border); }
 
