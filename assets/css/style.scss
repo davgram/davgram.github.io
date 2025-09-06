@@ -1,66 +1,52 @@
 ---
 ---
 
-/* Keep the Hacker theme, then override with a corporate light palette */
-@import "{{ site.theme }}";
+@import "{{ site.theme }}"; /* keep Hacker, then override with our palette */
 
-/* Corporate Light */
+/* === Corporate Dark palette === */
 :root{
-  --bg: #ffffff;        /* page background */
-  --text: #111827;      /* slate-900 */
-  --muted: #6b7280;     /* slate-500 */
-  --accent: #1d4ed8;    /* blue-700 */
-  --accent-2: #0ea5e9;  /* sky-500 (hover) */
-  --border: #e5e7eb;    /* gray-200 */
-  --code-bg: #f8fafc;   /* slate-50 */
+  --bg: #0b0c0f;        /* near-black */
+  --panel: #101217;     /* subtle panel */
+  --text: #e6e7ea;      /* near-white */
+  --muted: #9aa0a6;     /* soft gray */
+  --accent: #2b77ff;    /* business blue */
+  --accent-hover: #60a5fa;
+  --border: #1b1e24;
 }
 
 /* Base */
 html, body { background: var(--bg); color: var(--text); }
-a { color: var(--accent); }
-a:hover { color: var(--accent-2); }
 hr { border-color: var(--border); }
+a { color: var(--accent); }
+a:hover, a:focus { color: var(--accent-hover); text-decoration: underline; }
 
-/* Header */
-.page-header{
-  background: #f3f4f6;             /* light grey band */
-  border-bottom: 1px solid var(--border);
-  padding: 2rem 0;
-}
-.project-name, .project-tagline{ color: var(--text); }
-.project-tagline{ color: var(--muted); }
+/* Header + tagline (kill the neon green) */
+.page-header { background: var(--bg); border: none; }
+.project-name, .project-tagline { color: var(--text); }
+.project-tagline { color: var(--muted); }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6,
-.main-content h1, .main-content h2, .main-content h3{
-  color: #0f172a;                   /* very dark slate */
-}
+h1, h2, h3, h4, h5, h6 { color: var(--text); }
 
 /* Buttons */
 .btn{
-  background: #ffffff;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  border-radius: 6px;
+  background: transparent;
+  color: var(--text);
+  border-color: var(--accent);
 }
 .btn:hover{
   background: var(--accent);
-  color: #ffffff;
+  color: var(--bg);
 }
 
 /* Code blocks */
 pre, code{
-  background: var(--code-bg);
-  color: #0f172a;
-  border: 1px solid var(--border);
+  background: #0e1116;
+  color: #f3f4f6;
+  border-color: var(--border);
 }
 
-/* Footer */
-.site-footer{
-  background: #fafafa;
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-}
+/* Tables & quotes */
+table, th, td { border-color: var(--border); }
+blockquote{ color: var(--muted); border-left: 0.25rem solid var(--border); }
 
-/* Optional: hide “View on GitHub” button in header */
-.page-header .btn { display: none; }
