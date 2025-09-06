@@ -1,36 +1,26 @@
 ---
 ---
 
-@import "{{ site.theme }}"; /* load Hacker, then override */
+@import "{{ site.theme }}"; /* keep Hacker theme, then override */
 
-/* === Corporate Dark palette === */
+/* Corporate Dark palette */
 :root{
-  --bg: #0b0c0f;        /* near-black */
-  --text: #e6e7ea;      /* near-white */
-  --muted: #9aa0a6;     /* soft gray */
-  --accent: #2b77ff;    /* business blue */
-  --accent-hover: #60a5fa;
-  --border: #1b1e24;
+  --bg:#0b0c0f; --text:#e6e7ea; --muted:#9aa0a6;
+  --accent:#2b77ff; --accent-hover:#60a5fa; --border:#1b1e24;
 }
 
 /* Base */
-html, body { background: var(--bg); color: var(--text); }
-a { color: var(--accent); }
-a:hover, a:focus { color: var(--accent-hover); text-decoration: underline; }
-hr, table, th, td, pre, code { border-color: var(--border); }
-pre, code { background:#0e1116; color:#f3f4f6; }
+html,body{background:var(--bg);color:var(--text);}
+a{color:var(--accent);} a:hover{color:var(--accent-hover);text-decoration:underline;}
+hr,table,th,td,pre,code{border-color:var(--border);} pre,code{background:#0e1116;color:#f3f4f6;}
 
-/* ===== HEADER FIX ===== */
-/* remove Hacker theme neon + './' prefix and recolor */
-.page-header{ background: var(--bg) !important; border: none !important; }
-.page-header .project-name,
-.page-header .project-name a,
-.page-header h1.project-name{ color: var(--text) !important; }
-.page-header .project-name::before{ content: "" !important; }  /* hides "./" */
-.page-header .project-tagline{ color: var(--muted) !important; }
+/* Header (keep './', recolor) */
+.page-header{background:var(--bg)!important;border:none!important;}
+.page-header .project-name,.page-header .project-name a{color:var(--text)!important;}
+.page-header .project-tagline{color:var(--muted)!important;}
 
-/* Buttons (incl. cert badges) */
-.btn{ background: transparent; color: var(--text); border-color: var(--accent); }
-.btn:hover{ background: var(--accent); color: var(--bg); }
-.badge-row{ display:flex; flex-wrap:wrap; gap:.5rem; margin:1rem 0 2rem; }
-.btn.badge{ padding:.35rem .8rem; border-radius:9999px; font-size:.92rem; }
+/* HIDE the default “View on GitHub” header button */
+.page-header .btn{display:none!important;}
+
+/* Buttons + CERT badges */
+.btn{background:transparent;color:var(--text);border:2px solid va
