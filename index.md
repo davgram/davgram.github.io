@@ -2,122 +2,36 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, ~~strikethrough~~ or `keyword`.
+**Davide Gramuglia — Blue Team / SOC Analyst (entry level)**  
+Network-focused, DFIR-curious. Building detections, running small SOC labs, and writing clean incident notes.
 
-[Link to another page](./another-page.html).
+[Portfolio repos](https://github.com/davgram) • [Download my CV (PDF)](./Davide_Gramuglia_CV.pdf) • [LinkedIn](https://www.linkedin.com/in/your-link) • [Email](mailto:your.email@example.com)
 
-There should be whitespace between paragraphs.
+This site hosts my **cybersecurity résumé** and selected **blue-team projects**. Everything is minimalist and recruiter-friendly.
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+---
 
-# Header 1
+# Skills & Tools
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+**SIEM & Logs:** Splunk, Elastic (ELK), Windows Event Logs, Sysmon, Sigma  
+**Network:** Zeek, Suricata, Wireshark, PCAP triage, DNS/HTTP/TLS basics  
+**Endpoint/DFIR:** Volatility, Autoruns, Procmon/Procdump, LiME  
+**Detection Eng.:** ATT&CK mapping, rule tuning, baselining, FP control  
+**Scripting:** Python, PowerShell, regex for log parsing  
+**Ops/Lab:** VMware/VirtualBox, Windows/Linux admin basics
 
-## Header 2
+## Featured Projects
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+> I like practical work: capture → parse → hunt → detect → document.
 
-### Header 3
+### Mini SOC Lab (Windows + Sysmon + Splunk/Elastic)
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
+- Win10 VM with **Sysmon** shipping logs to **Splunk** and **Elastic**  
+- Dashboards for process/network events, persistence, and script abuse  
+- Detections for LOLBINs, encoded PowerShell, suspicious child-process trees
 
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
-
-#### Header 4
-
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-
-##### Header 5
-
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
-
-###### Header 6
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
-* * *
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
+```spl
+# Splunk: quick process creation triage (Sysmon EventCode=1)
+index=wineventlog source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1
+| stats count by Image, CommandLine, User, Computer
+| sort - count
