@@ -5,13 +5,6 @@ title: Projects
 
 # Featured Projects
 
-<!-- Certifications (stacked vertically under the header/tagline) -->
-<div class="badge-col">
-  <a class="btn badge" href="#" target="_blank" rel="noopener">CompTIA Security+</a>
-  <a class="btn badge" href="#" target="_blank" rel="noopener">Blue Team Level 1 (BTL1)</a>
-  <a class="btn badge" href="#" target="_blank" rel="noopener">TryHackMe SAL1</a>
-</div>
-
 ### Vulnerability Scanner Deployment  
 [View on GitHub ↗](https://github.com/davgram/vuln-scanner-deployment)
 
