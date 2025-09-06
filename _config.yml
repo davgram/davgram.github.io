@@ -1,5 +1,5 @@
-<div class="badge-row">
-  <a class="btn badge" href="YOUR_SECURITY_PLUS_URL" target="_blank" rel="noopener">CompTIA Security+</a>
-  <a class="btn badge" href="YOUR_BTL1_URL" target="_blank" rel="noopener">Blue Team Level 1 (BTL1)</a>
-  <a class="btn badge" href="YOUR_THM_SAL1_URL" target="_blank" rel="noopener">TryHackMe SAL1</a>
-</div>
+title: "Davide Gramuglia — Security Analyst"
+description: "Blue-Team / SOC — network-focused, DFIR-curious. Building detections, small SOC labs, and clean write-ups."
+theme: jekyll-theme-hacker
+show_downloads: false
+permalink: pretty
